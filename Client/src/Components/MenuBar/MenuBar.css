@@ -1,0 +1,14 @@
+.menu {
+    color: #f2ebdd;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Fraunces";
+    display: flex;
+    justify-content: space-between;
+
+    .items {
+        display: flex;
+        gap: 10px;
+        font-size: 14px;
+    }
+}
