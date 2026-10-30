@@ -112,20 +112,3 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
-
-
-
-
-
-mkdir -p data
-
-export MINIO_ROOT_USER=minioadmin
-export MINIO_ROOT_PASSWORD=minioadmin
-
-docker run -d --name silo \
-  -p 9000:9000 \
-  -p 9001:9001 \
-  -e MINIO_ROOT_USER \
-  -e MINIO_ROOT_PASSWORD \
-  -v "$PWD/data:/data" \
-  pgsty/minio:latest server /data --console-address ":9001"

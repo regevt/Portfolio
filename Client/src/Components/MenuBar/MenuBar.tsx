@@ -5,12 +5,13 @@ import "./MenuBar.css";
 export const MenuBar: FC = () => {
     return <div className="menu">
         <div>
-            <label>My Woodworking</label>
+            <span>My Woodworking</span>
         </div>
         <div className="items">
-            <label>Project</label>
-            <label>About</label>
-            <label>Contact</label>
+            <span><b>EN</b>/NL</span>
+            <span>Project</span>
+            <span>About</span>
+            <span>Contact</span>
         </div>
     </div>
 }

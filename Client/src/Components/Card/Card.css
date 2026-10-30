@@ -1,0 +1,27 @@
+.card {
+
+    display: flex;
+    flex-direction: column;
+    width: 352px;
+    align-items: start;
+    gap: 18px;
+
+    img {
+        width: 352px;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .title {
+        color: #f2ebdd;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .description {
+        color: #b3a592;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: -10px;
+    }
+}

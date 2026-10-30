@@ -1,5 +1,8 @@
 .home {
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
     .cover-image {
         background-color: #5b3a24;
@@ -9,6 +12,45 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+    }
+
+    .content {
+        width: inherit;
+        max-width: 1504px;
+        align-self: center;
+
+        .subTitle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* width: 100%; */
+            margin-top: 84px;
+            margin-bottom: 36px;
+
+            span {
+                color: #f2ebdd;
+                font-size: 36px;
+                font-weight: 600;
+            }
+
+            a {
+                color: #d49a6a;
+                text-decoration: none;
+
+                &:hover {
+                    color: #f1ad75;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 32px;
+            grid-template-columns: repeat(auto-fill, minmax(352px, 352px));
+            justify-content: center;
+            /* centers the columns themselves */
         }
     }
 }
