@@ -4,6 +4,10 @@
     flex-direction: column;
     width: 100%;
 
+    a {
+        text-decoration: none;
+    }
+
     .cover-image {
         background-color: #5b3a24;
         border: solid 1px white;
@@ -53,23 +57,50 @@
                 font-weight: 600;
             }
 
-            a {
-                color: var(--link-color);
-                text-decoration: none;
 
-                &:hover {
-                    color: var(--link-hover-color);
-                    cursor: pointer;
-                }
-            }
         }
 
         .card-grid {
             display: grid;
-            gap: 32px;
+            gap: 12px;
             grid-template-columns: repeat(auto-fill, minmax(var(--card-width), var(--card-width)));
             justify-content: center;
+            /* align-items: center; */
             /* centers the columns themselves */
+        }
+
+        .about {
+            margin-top: 100px;
+
+            div {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 32px;
+
+                img {
+                    height: 400px;
+                }
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: start;
+                    align-items: start;
+
+                    gap: 26px;
+
+                    .header {
+                        font-size: 36px;
+                        font-weight: 600;
+                    }
+
+                    .description {
+                        color: var(--secondary-text-color);
+                        text-align: start;
+                    }
+                }
+            }
         }
     }
 }

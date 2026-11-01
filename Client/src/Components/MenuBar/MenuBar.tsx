@@ -5,7 +5,7 @@ import "./MenuBar.css";
 export const MenuBar: FC = () => {
     return <div className="menu">
         <div>
-            <span>My Woodworking</span>
+            <span>Regev's designs</span>
         </div>
         <div className="items">
             <span><b>EN</b>/NL</span>

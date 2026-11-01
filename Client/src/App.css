@@ -1,9 +1,13 @@
 :root {
-  --primary-text-color: #f2ebdd;
-  --secondary-text-color: #b3a592;
+  --primary-text-color: #181816;
+  --secondary-text-color: #3f3e3c;
+  --primary-card-text-color: #FFF;
+  --secondary-card-text-color: #a7a7a7;
   --link-color: #d49a6a;
   --link-hover-color: #f1ad75;
-  --card-width: 352px;
+  --card-width: 400px;
+  --background-color: #16130f;
+  /* --background-color-hover: #563106; */
 }
 
 html,
@@ -12,7 +16,7 @@ body,
   height: 100vh;
   padding: 0;
   margin: 0;
-  background-color: #16130f;
+  background-color: #fff;
 }
 
 .App {
@@ -30,5 +34,16 @@ body,
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--link-hover-color);
+    cursor: pointer;
   }
 }

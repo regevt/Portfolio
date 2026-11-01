@@ -1,12 +1,18 @@
 import { FC } from "react";
 import "./Card.css"
-import card from "../../Assets/Images/cover.jpg"
 
 
-export const Card: FC = () => {
+export interface CardProps {
+    image: string;
+    title: string;
+    id: number;
+}
+
+export const Card: FC<CardProps> = ({ image, title }) => {
     return <div className="card">
-        <img src={card} alt="card" />
-        <span className="title">title</span>
-        <span className="description">description</span>
+        <img src={image} alt="card" />
+        <div>
+            <span className="title">{title}</span>
+        </div>
     </div>
 } 

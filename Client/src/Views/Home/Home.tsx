@@ -1,32 +1,33 @@
 import { FC } from "react";
 import "./Home.css"
-import cover from "../../Assets/Images/cover.jpg"
 import { Card } from "../../Components/Card/Card";
+import { Link } from "react-router-dom";
+import me from "../../Assets/Images/me.png";
+import planter1 from "../../Assets/Images/planter1.jpg";
+import planter2 from "../../Assets/Images/planter2.jpg";
+import platform from "../../Assets/Images/cover.jpg";
+
+
 
 export const Home: FC = () => {
     return <div className="home">
-        <div className="cover-image">
-            <img src={cover} alt="cover" width="90%" />
-            <span>Hand-made furniture<br />and small projects</span>
+        <div className="content">
+            <div className="card-grid">
+                <Card image={planter1} title={"Planter"} id={0} />
+                <Card image={planter2} title={"Planter"} id={0} />
+                <Card image={platform} title={"Platform"} id={0} />
+            </div>
+            <div className="about">
+                <div>
+                    <img src={me} alt="Regev Tal-Snijder" />
+                    <div className="content">
+                        <span className="header">Regev Tal-Snijder</span>
+                        <span className="description">Software developer and a hobbyist woodworker</span>
+                        <Link to={"/about"}>Read more →</Link>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div className="content">
-            <div className="subTitle">
-                <span>Featured work</span>
-                <a href="#">All projects →</a>
-            </div>
-            <div className="card-grid">
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-            </div>
-        </div>
     </div>
 }
