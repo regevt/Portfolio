@@ -1,8 +1,7 @@
 .menu {
-    color: #f2ebdd;
+    color: var(--primary-text-color);
     font-size: 24px;
     font-weight: 600;
-    font-family: "Fraunces";
     display: flex;
     justify-content: space-between;
 

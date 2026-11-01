@@ -7,11 +7,31 @@
     .cover-image {
         background-color: #5b3a24;
         border: solid 1px white;
+        display: grid;
+
+        &>* {
+            grid-area: 1 / 1;
+        }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        span {
+            z-index: 3;
+            position: relative;
+            align-self: end;
+            justify-self: start;
+            text-align: left;
+            margin-left: 32px;
+            margin-bottom: 32px;
+            font-size: 56px;
+            background-color: #00000048;
+            padding: 12px;
+            font-family: 'Bitter', serif;
+            font-weight: 700;
         }
     }
 
@@ -24,22 +44,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            /* width: 100%; */
             margin-top: 84px;
             margin-bottom: 36px;
 
             span {
-                color: #f2ebdd;
+                color: var(--primary-text-color);
                 font-size: 36px;
                 font-weight: 600;
             }
 
             a {
-                color: #d49a6a;
+                color: var(--link-color);
                 text-decoration: none;
 
                 &:hover {
-                    color: #f1ad75;
+                    color: var(--link-hover-color);
                     cursor: pointer;
                 }
             }
@@ -48,7 +67,7 @@
         .card-grid {
             display: grid;
             gap: 32px;
-            grid-template-columns: repeat(auto-fill, minmax(352px, 352px));
+            grid-template-columns: repeat(auto-fill, minmax(var(--card-width), var(--card-width)));
             justify-content: center;
             /* centers the columns themselves */
         }

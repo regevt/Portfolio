@@ -7,6 +7,7 @@ export const Home: FC = () => {
     return <div className="home">
         <div className="cover-image">
             <img src={cover} alt="cover" width="90%" />
+            <span>Hand-made furniture<br />and small projects</span>
         </div>
 
         <div className="content">
