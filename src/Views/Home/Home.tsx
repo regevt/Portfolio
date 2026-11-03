@@ -22,7 +22,7 @@ export const Home: FC = () => {
                     <img src={me} alt="Regev Tal-Snijder" />
                     <div className="content">
                         <span className="header">Regev Tal-Snijder</span>
-                        <span className="description">Software developer and a hobbyist woodworker</span>
+                        <span className="description">Software developer, hobbyist woodworker and tinkerer</span>
                         <Link to={"/about"}>Read more →</Link>
                     </div>
                 </div>

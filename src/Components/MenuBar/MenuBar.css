@@ -4,6 +4,7 @@
     font-weight: 600;
     display: flex;
     justify-content: space-between;
+    align-items: end;
 
     .items {
         display: flex;
