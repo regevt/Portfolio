@@ -7,7 +7,7 @@ import { Project } from './Views/Project/Project';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename='https://regevt.github.io/Portfolio/'>
         <MenuBar />
         <Routes>
           <Route path='/' Component={Home} />
