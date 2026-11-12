@@ -2,13 +2,57 @@
     color: var(--primary-text-color);
     font-size: 24px;
     font-weight: 600;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    background-color: #e7cfb4;
+    width: inherit;
+    padding: 4px 12px;
     align-items: end;
+    position: relative;
+    box-shadow: 0px 4px 10px #9d9c9c;
+
+    &>* {
+        grid-area: 1 / 1;
+    }
+
+    .logo {
+        justify-self: start;
+    }
+
+    .siteName {
+        z-index: 3;
+        justify-self: center;
+        font-family: "Arizonia", cursive;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 40px;
+
+    }
 
     .items {
+        align-self: end;
+        justify-self: end;
         display: flex;
         gap: 10px;
         font-size: 14px;
+        padding-bottom: 8px;
+
+        .language {
+            background-color: transparent;
+            border: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .language:focus {
+            outline: none;
+
+            /* Highly Recommended: Add your own custom focus style */
+            border-color: #3b82f6;
+            /* Example: Blue border */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+            /* Example: Soft focus ring */
+        }
+
     }
 }

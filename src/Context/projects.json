@@ -1,0 +1,51 @@
+{
+    "projects": [
+        {
+            "id": 3,
+            "titleEN": "Deck",
+            "titleNL": "",
+            "descriptionEN": "<h1 class=\"ql-align-center\"><span style=\"color: rgb(24, 24, 22); background-color: rgb(255, 255, 255);\">Deck&nbsp;(balcony&nbsp;extension)</span></h1><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(24, 24, 22); font-size: 16px;\">After&nbsp;moving&nbsp;into&nbsp;the&nbsp;my&nbsp;new&nbsp;house&nbsp;it&nbsp;was&nbsp;obvious&nbsp;that&nbsp;the&nbsp;deck&nbsp;will&nbsp;need&nbsp;to&nbsp;be&nbsp;replaced,&nbsp;the&nbsp;old&nbsp;one&nbsp;was&nbsp;completely&nbsp;rotten&nbsp;and&nbsp;beyond&nbsp;save.</span></p><p></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(24, 24, 22); font-size: 16px;\">The&nbsp;woods&nbsp;I&nbsp;chose&nbsp;for&nbsp;the&nbsp;project&nbsp;are&nbsp;</span><strong style=\"background-color: rgb(255, 255, 255); color: rgb(24, 24, 22); font-size: 16px;\"><a href=\"https://en.wikipedia.org/wiki/Lophira_alata\" rel=\"noopener noreferrer\" target=\"_blank\">Azobe</a></strong><span style=\"background-color: rgb(255, 255, 255); color: rgb(24, 24, 22); font-size: 16px;\">&nbsp;for&nbsp;the&nbsp;supporting&nbsp;structure&nbsp;and&nbsp;</span><strong style=\"background-color: rgb(255, 255, 255); color: rgb(24, 24, 22); font-size: 16px;\"><a href=\"https://en.wikipedia.org/wiki/Shorea#:~:text=Shorea%20fossils%20(linked%20with%20the%20modern%20sal%2C,and%20selected%20species%20*%20Shorea%20robusta%20C.F.Gaertn.\" rel=\"noopener noreferrer\" target=\"_blank\">Bankirai</a></strong><span style=\"background-color: rgb(255, 255, 255); color: rgb(24, 24, 22); font-size: 16px;\">&nbsp;for&nbsp;the&nbsp;slats.&nbsp;</span></p><p><span style=\"background-color: rgb(255, 255, 255); color: rgb(24, 24, 22); font-size: 16px;\">I&nbsp;went&nbsp;for&nbsp;those&nbsp;woods&nbsp;because,&nbsp;according&nbsp;to&nbsp;my&nbsp;research,&nbsp;they&nbsp;are&nbsp;good&nbsp;for&nbsp;the&nbsp;outside&nbsp;and&nbsp;are&nbsp;somewhat&nbsp;weather&nbsp;resistant.&nbsp;with&nbsp;good&nbsp;care&nbsp;they&nbsp;should&nbsp;last&nbsp;for&nbsp;many&nbsp;years.&nbsp;</span></p><p></p><p><span style=\"color: rgb(24, 24, 22); background-color: rgb(255, 255, 255); font-size: 16px;\">Not&nbsp;knowing&nbsp;what&nbsp;I&nbsp;am&nbsp;doing,&nbsp;I&nbsp;decided&nbsp;to&nbsp;err&nbsp;on&nbsp;the&nbsp;side&nbsp;of&nbsp;caution&nbsp;and&nbsp;doubled&nbsp;all&nbsp;the&nbsp;stratus.&nbsp;in&nbsp;retrospective,&nbsp;probably&nbsp;overkill.</span></p>",
+            "descriptionNL": "",
+            "projectName": "deck",
+            "images": [
+                "0.png",
+                "1.jpg",
+                "2.jpg",
+                "3.jpg"
+            ]
+        },
+        {
+            "id": 0,
+            "titleEN": "planter",
+            "titleNL": "",
+            "descriptionEN": "",
+            "descriptionNL": "",
+            "projectName": "planter1",
+            "images": [
+                "planter.jpg"
+            ]
+        },
+        {
+            "id": 1,
+            "titleEN": "planter",
+            "titleNL": "",
+            "descriptionEN": "# Welcome!\n\nThis is a **stylized** description containing:\n* Bullet points\n* `Inline code`\n* [Links](https://example.com)",
+            "descriptionNL": "",
+            "projectName": "planter2",
+            "images": [
+                "planter.jpg"
+            ]
+        },
+        {
+            "id": 2,
+            "titleEN": "Dog bowls platform",
+            "titleNL": "",
+            "descriptionEN": "",
+            "descriptionNL": "",
+            "projectName": "platform",
+            "images": [
+                "platform.jpg"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+.project {
+    height: calc(100vh - 114px);
+    overflow: auto;
+
+
+    .description {
+        justify-self: center;
+        padding: 32px;
+        max-width: 80%;
+    }
+
+
+    .images {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(var(--card-width), var(--card-width)));
+        justify-content: center;
+        margin-bottom: 100px;
+
+        img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+        }
+    }
+}
