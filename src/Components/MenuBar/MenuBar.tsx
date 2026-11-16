@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import "./MenuBar.css";
-import Logo from "../../Assets/Images/logo.png"
 import { Link } from "react-router";
 
 
@@ -9,7 +8,7 @@ export const MenuBar: FC = () => {
     const [lang, setLang] = useState(0)
 
     return <div className="menu">
-        <Link className="logo" to="/"><img src={Logo} alt="logo" width="100px" /></Link>
+        <Link className="logo" to="/"><img src={`${process.env.PUBLIC_URL || ''}/images/logo.png`} alt="logo" width="100px" /></Link>
         <div className="siteName">
             <span>Regev Makes</span>
         </div>

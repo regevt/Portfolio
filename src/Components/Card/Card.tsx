@@ -17,7 +17,7 @@ export const Card: FC<CardProps> = ({ id }) => {
     }, [state, id])
 
     return <div className="card">
-        <img src={require(`../../Assets/Images/${project?.projectName}/${project?.images?.[0]}`)} alt="card" />
+        <img src={`${process.env.PUBLIC_URL || ''}/images/${project?.projectName}/${project?.images?.[0]}`} alt="card" />
 
         <div>
             <span className="title">{project?.titleEN}</span>

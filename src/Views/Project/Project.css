@@ -1,26 +1,31 @@
-.project {
-    height: calc(100vh - 114px);
-    overflow: auto;
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
 
+    visibility: hidden;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.4s ease;
 
-    .description {
-        justify-self: center;
-        padding: 32px;
-        max-width: 80%;
+    &.active {
+        visibility: visible;
+        pointer-events: auto;
     }
 
+    &.visible {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
 
-    .images {
-        display: grid;
-        gap: 12px;
-        grid-template-columns: repeat(auto-fill, minmax(var(--card-width), var(--card-width)));
-        justify-content: center;
-        margin-bottom: 100px;
-
-        img {
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-        }
+    img {
+        flex-shrink: 0;
+        display: block;
+        transform-origin: center center;
+        will-change: transform;
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 }
