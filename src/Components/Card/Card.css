@@ -9,6 +9,13 @@
     background-color: var(--background-color-hover);
     position: relative;
 
+    @media only screen and (width <=400px) {
+        width: calc(100vw - 10px);
+        align-items: center;
+        align-self: center;
+        justify-self: center;
+    }
+
     &>* {
         grid-area: 1 / 1;
     }
@@ -19,6 +26,11 @@
         object-fit: cover;
         position: relative;
         z-index: 1;
+
+        @media only screen and (width <=400px) {
+            width: inherit;
+            height: calc(100vw - 10px);
+        }
     }
 
     div {

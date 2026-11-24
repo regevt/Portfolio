@@ -1,13 +1,22 @@
 :root {
-  --primary-text-color: #181816;
+  --primary-text-color: #FFF;
   --secondary-text-color: #3f3e3c;
   --primary-card-text-color: #FFF;
   --secondary-card-text-color: #a7a7a7;
-  --link-color: #d49a6a;
+  --link-color: #E7CFB4;
   --link-hover-color: #f1ad75;
   --card-width: 400px;
-  --background-color: #16130f;
+  --background-color: #2B2116;
+  --menu-color: #A38563;
+  --color-1: #FDFAF8;
+  --color-2: #E7CFB4;
+  --color-3: #CAA67C;
+  --color-4: #A38563;
+  --color-5: #7A6449;
+  --color-6: #51412F;
+  --color-7: #2B2116;
 }
+
 
 html,
 body,
@@ -15,7 +24,7 @@ body,
   height: 100vh;
   padding: 0;
   margin: 0;
-  background-color: #fff;
+  background-color: var(--background-color);
   overflow: hidden;
 }
 
@@ -24,6 +33,10 @@ body,
   /* padding: 30px; */
   color: var(--primary-text-color);
   font-family: 'Source Sans Pro', sans-serif;
+  overflow: hidden;
+  height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
 .App-logo {

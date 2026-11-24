@@ -1,11 +1,11 @@
 import {
-    FC, MouseEvent as ReactMouseEvent, TransitionEvent, useCallback, useContext,
+    FC, PropsWithChildren, MouseEvent as ReactMouseEvent, TransitionEvent, useCallback,
     useEffect, useLayoutEffect, useMemo, useRef, useState
 } from "react";
 import { useParams } from "react-router-dom";
-import { PortfolioContext } from "../../Context/Store";
 import "./Project.css";
-import 'react-quill-new/dist/quill.snow.css';
+import { Pages } from "../../Pages";
+import { Footer } from "../../Components/Footer/Footer";
 
 const ANIMATION_MS = 400;
 const VIEWPORT_FILL = 0.9;
@@ -16,9 +16,12 @@ interface OpenedImage {
     height: number;
 }
 
-export const Project: FC = () => {
+export interface ProjectProps extends PropsWithChildren {
+
+}
+
+export const Project: FC<ProjectProps> = ({ children }) => {
     const params = useParams();
-    const { state } = useContext(PortfolioContext);
 
     const [isOpen, setIsOpen] = useState(false);
     const [image, setImage] = useState<OpenedImage | undefined>(undefined);
@@ -27,9 +30,9 @@ export const Project: FC = () => {
     const overlayRef = useRef<HTMLDivElement>(null);
     const imgRef = useRef<HTMLImageElement>(null);
 
-    const project = useMemo(() => {
-        return state.projects.find(p => p.id === Number(params.id));
-    }, [state, params]);
+    const Page = useMemo(() => {
+        return Pages.find(p => p.data.id === Number(params.id))?.Page;
+    }, [params]);
 
     const getCollapsedTransform = useCallback(() => {
         const source = sourceRef.current;
@@ -110,7 +113,6 @@ export const Project: FC = () => {
         setIsOpen(false);
     }, [getCollapsedTransform]);
 
-    // Finish exactly when the transform animation ends
     const handleTransitionEnd = useCallback((e: TransitionEvent<HTMLImageElement>) => {
         if (!isOpen && e.propertyName === "transform") finishClose();
     }, [isOpen, finishClose]);
@@ -136,15 +138,11 @@ export const Project: FC = () => {
 
     return (
         <div className="project">
-            <div className="description">
-                <div className="ql-container ql-bubble">
-                    <div
-                        className="ql-editor"
-                        onClick={handleContentClick}
-                        dangerouslySetInnerHTML={{ __html: project?.descriptionEN ?? "" }}
-                    />
-                </div>
+            <div className="description" onClick={handleContentClick}>
+                {Page && <Page />}
             </div>
+
+            <Footer />
 
             <div
                 ref={overlayRef}

@@ -5,7 +5,7 @@ export interface Project {
     descriptionEN: string;
     descriptionNL: string;
     projectName: string;
-    images: string[];
+    image: string;
 }
 
 export enum lang {

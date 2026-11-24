@@ -1,10 +1,8 @@
 import { createContext, useReducer, PropsWithChildren, ActionDispatch, useEffect } from 'react';
-import { lang, Project } from "../types/types";
-import db from "./projects.json"
+import { lang } from "../types/types";
 
 export interface PortfolioState {
     lang: lang;
-    projects: Project[];
 }
 
 export interface PortfolioAction {
@@ -16,19 +14,18 @@ export const PortfolioContext = createContext<{
     state: PortfolioState,
     dispatch?: ActionDispatch<[action: PortfolioAction]>
 }
->({ state: { lang: lang.EN, projects: [] } });
+>({ state: { lang: lang.EN, } });
 
 export const PortfolioProvider = ({ children }: PropsWithChildren) => {
     const [portfolio, dispatch] = useReducer(
         portfolioReducer,
-        { lang: lang.EN, projects: [] }
+        { lang: lang.EN, }
     );
 
     useEffect(() => {
         dispatch?.({
             type: "set", payload: {
                 lang: lang.EN,
-                projects: db.projects as Project[]
             }
         })
     }, [])

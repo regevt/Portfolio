@@ -1,3 +1,15 @@
+.project {
+    width: 100%;
+    overflow: auto;
+    height: calc(100% - 114px);
+
+    @media only screen and (width <=400px) {
+        width: 100%;
+    }
+
+}
+
+
 .overlay {
     position: fixed;
     inset: 0;
@@ -27,9 +39,6 @@
         transform-origin: center center;
         will-change: transform;
         transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-}
 
-.project_body {
-    width: 80%
+    }
 }

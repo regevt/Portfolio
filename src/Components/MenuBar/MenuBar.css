@@ -3,12 +3,12 @@
     font-size: 24px;
     font-weight: 600;
     display: grid;
-    background-color: #e7cfb4;
+    background-color: var(--menu-color);
     width: inherit;
     padding: 4px 12px;
     align-items: end;
     position: relative;
-    box-shadow: 0px 4px 10px #9d9c9c;
+    /* box-shadow: 0px 4px 10px #9d9c9c; */
 
     &>* {
         grid-area: 1 / 1;
@@ -16,6 +16,11 @@
 
     .logo {
         justify-self: start;
+
+        @media only screen and (width <=400px) {
+            display: none;
+            visibility: hidden;
+        }
     }
 
     .siteName {
@@ -25,7 +30,11 @@
         font-weight: 600;
         font-style: normal;
         font-size: 40px;
+        color: var(--color-7);
 
+        @media only screen and (width <=400px) {
+            justify-self: start;
+        }
     }
 
     .items {
@@ -35,6 +44,8 @@
         gap: 10px;
         font-size: 14px;
         padding-bottom: 8px;
+
+        color: var(--color-7);
 
         .language {
             background-color: transparent;

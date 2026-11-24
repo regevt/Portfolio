@@ -1,23 +1,15 @@
-import { FC, useContext, useMemo } from "react";
+import { FC } from "react";
 import "./Card.css"
-import { PortfolioContext } from "../../Context/Store";
+import { Project } from "../../types/types";
 
 
 export interface CardProps {
-    id: number;
+    project: Project;
 }
 
-export const Card: FC<CardProps> = ({ id }) => {
-
-
-    const { state } = useContext(PortfolioContext);
-
-    const project = useMemo(() => {
-        return state.projects.find(p => p.id === id)
-    }, [state, id])
-
+export const Card: FC<CardProps> = ({ project }) => {
     return <div className="card">
-        <img src={`${process.env.PUBLIC_URL || ''}/images/${project?.projectName}/${project?.images?.[0]}`} alt="card" />
+        <img src={`${process.env.PUBLIC_URL || ''}/images/${project?.projectName}/${project?.image}`} alt="card" />
 
         <div>
             <span className="title">{project?.titleEN}</span>

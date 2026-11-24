@@ -1,25 +1,24 @@
-import { FC, useContext, useMemo } from "react";
+import { FC, useMemo } from "react";
 import "./Home.css"
 import { Card } from "../../Components/Card/Card";
 import { Link } from "react-router-dom";
-import { PortfolioContext } from "../../Context/Store";
+import { Pages } from "../../Pages"
+import { Footer } from "../../Components/Footer/Footer";
 
 
 
 export const Home: FC = () => {
 
-    const { state } = useContext(PortfolioContext);
-
     const cards = useMemo(() => {
-        return state?.projects?.map((proj, i) => <Link to={`project/${proj.id}`} key={i}><Card id={proj.id} /></Link>)
-    }, [state])
+        return Pages?.map((proj, i) => <Link to={`project/${proj.data.id}`} key={i}><Card project={proj.data} /></Link>)
+    }, [])
 
     return <div className="home">
         <div className="content">
             <div className="card-grid">
                 {cards}
             </div>
-            <div className="about">
+            {/* <div className="about">
                 <div>
                     <img src={`${process.env.PUBLIC_URL || ''}/images/me.png`} alt="Regev Tal-Snijder" />
                     <div className="content">
@@ -28,8 +27,8 @@ export const Home: FC = () => {
                         <Link to={"/about"}>Read more →</Link>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <Footer />
         </div>
-
     </div>
 }
