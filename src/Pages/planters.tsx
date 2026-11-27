@@ -1,20 +1,29 @@
 import { FC } from "react"
 import "./page.css"
+import { Specs } from "../Components/Specs/Specs"
+import { Project } from "../types/types"
 
-export const Data = {
+export const Data: Project = {
     id: 2,
-    titleEN: "planters",
+    titleEN: "Planters",
     titleNL: "",
     projectName: "planters",
-    descriptionEN: "",
+    descriptionEN: "My first real woodworking project, from the boards of the old shed.",
     descriptionNL: "",
-    image: "planter1.jpg"
+    image: "planter1.jpg",
+    category: "Woodworking",
+    specs: [
+        { label: "Wood", value: "Old shed boards" },
+        { label: "Joints", value: "45° mitres" },
+        { label: "Finish", value: "Paint, linseed oil" },
+    ]
 }
 
 export const Planter1: FC = () => {
     return (
         <div className="page">
             <h1 className="title">First real woodworking project</h1>
+            <Specs items={Data.specs} />
             <div >
                 <p >
                     <span>As a first foray into woodworking I decided to go for one of the classic projects, a planter with an overhanging lip.</span>

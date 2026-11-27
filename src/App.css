@@ -1,62 +1,139 @@
+/* Workshop log: walnut at night, sawdust by day. One copper accent per theme. */
 :root {
-  --primary-text-color: #FFF;
-  --secondary-text-color: #3f3e3c;
-  --primary-card-text-color: #FFF;
-  --secondary-card-text-color: #a7a7a7;
-  --link-color: #E7CFB4;
-  --link-hover-color: #f1ad75;
-  --card-width: 400px;
-  --background-color: #2B2116;
-  --menu-color: #A38563;
-  --color-1: #FDFAF8;
-  --color-2: #E7CFB4;
-  --color-3: #CAA67C;
-  --color-4: #A38563;
-  --color-5: #7A6449;
-  --color-6: #51412F;
-  --color-7: #2B2116;
+  --font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --content-width: 1240px;
+  --gutter: 40px;
+
+  --bg: #1C1611;
+  --surface: #251D16;
+  --media: #2B2116;
+  --fg: #F2E6D8;
+  --soft: #C9B6A0;
+  --faint: #9C8873;
+  --line: #3A2E23;
+  --chip-line: #4A3C2E;
+  --chip-text: #E7D6C2;
+  --accent: #E58A5C;
+  --hover: #F6B48C;
+  --inverse-bg: #F2E6D8;
+  --inverse-fg: #1C1611;
+  color-scheme: dark;
 }
 
-
-html,
-body,
-#root {
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  background-color: var(--background-color);
-  overflow: hidden;
-}
-
-.App {
-  text-align: center;
-  /* padding: 30px; */
-  color: var(--primary-text-color);
-  font-family: 'Source Sans Pro', sans-serif;
-  overflow: hidden;
-  height: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #FBF7F2;
+    --surface: #F3EBE0;
+    --media: #EADFD1;
+    --fg: #241A11;
+    --soft: #5E4B38;
+    --faint: #7A6550;
+    --line: #E3D6C5;
+    --chip-line: #CDBBA5;
+    --chip-text: #3A2C1F;
+    --accent: #B0502A;
+    --hover: #8A3A1A;
+    --inverse-bg: #241A11;
+    --inverse-fg: #FBF7F2;
+    color-scheme: light;
   }
 }
 
+:root[data-theme="light"] {
+  --bg: #FBF7F2;
+  --surface: #F3EBE0;
+  --media: #EADFD1;
+  --fg: #241A11;
+  --soft: #5E4B38;
+  --faint: #7A6550;
+  --line: #E3D6C5;
+  --chip-line: #CDBBA5;
+  --chip-text: #3A2C1F;
+  --accent: #B0502A;
+  --hover: #8A3A1A;
+  --inverse-bg: #241A11;
+  --inverse-fg: #FBF7F2;
+  color-scheme: light;
+}
+
+@media only screen and (width <=900px) {
+  :root {
+    --gutter: 24px;
+  }
+}
+
+@media only screen and (width <=640px) {
+  :root {
+    --gutter: 16px;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.wrap {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
 
 a {
-  color: var(--link-color);
+  color: var(--fg);
   text-decoration: none;
 
   &:hover {
-    color: var(--link-hover-color);
+    color: var(--hover);
     cursor: pointer;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.icon-button {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--chip-line);
+  border-radius: 10px;
+  color: var(--fg);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hover);
   }
 }

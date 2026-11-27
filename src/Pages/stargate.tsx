@@ -1,15 +1,23 @@
 import { FC } from "react"
 import "./page.css"
 import { useIsMobile } from "../hooks/useIsMobile"
+import { Specs } from "../Components/Specs/Specs"
+import { Project } from "../types/types"
 
-export const Data = {
+export const Data: Project = {
     id: 3,
     titleEN: "Stargate",
     titleNL: "",
     projectName: "stargate",
-    descriptionEN: "",
+    descriptionEN: "The Stargate Project's printable gate, with a dial home device that lights up.",
     descriptionNL: "",
-    image: "gate_in_display.jpg"
+    image: "gate_in_display.jpg",
+    category: "3D printing",
+    specs: [
+        { label: "Build", value: "3D printed" },
+        { label: "Electronics", value: "PCBWay PCB" },
+        { label: "Finish", value: "Dry-brushed base" },
+    ]
 }
 
 export const Stargate: FC = () => {
@@ -18,6 +26,7 @@ export const Stargate: FC = () => {
     return (
         <div className="page">
             <h1 className="title">3D printed Stargate</h1>
+            <Specs items={Data.specs} />
             <p >
                 <span>
                     For as long as remember myself I was a fan of the movie <a target="_blank" rel="noreferrer" href="https://www.imdb.com/title/tt0111282/">Stargate (1994)</a> and then the tv-show <a target="_blank" rel="noreferrer" href="https://www.imdb.com/title/tt0118480">Stargate SG-1 (1997)</a>

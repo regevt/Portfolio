@@ -1,20 +1,29 @@
 import { FC } from "react"
 import "./page.css"
+import { Specs } from "../Components/Specs/Specs"
+import { Project } from "../types/types"
 
-export const Data = {
+export const Data: Project = {
    id: 1,
    titleEN: "Deck",
    titleNL: "",
    projectName: "deck",
-   descriptionEN: "",
+   descriptionEN: "A new balcony deck to replace one that had rotted through.",
    descriptionNL: "",
-   image: "0.png"
+   image: "0.png",
+   category: "Woodworking",
+   specs: [
+      { label: "Size", value: "4.2 × 2.3 m" },
+      { label: "Frame", value: "Azobe" },
+      { label: "Slats", value: "Bankirai" },
+   ]
 }
 
 export const Deck: FC = () => {
    return (
       <div className="page">
          <h1 className="title">Deck (balcony extension)</h1>
+         <Specs items={Data.specs} />
          <div >
             <p >
                <span>After moving into the my new house it was obvious that the deck will need to be replaced, the old one was completely rotten and beyond save.</span>

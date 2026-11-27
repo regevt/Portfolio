@@ -1,20 +1,29 @@
 import { FC } from "react"
 import "./page.css"
+import { Specs } from "../Components/Specs/Specs"
+import { Project } from "../types/types"
 
-export const Data = {
-    id: 3,
-    titleEN: "Dogs bowl platform",
+export const Data: Project = {
+    id: 4,
+    titleEN: "Dog bowl platform",
     titleNL: "",
     projectName: "platform",
-    descriptionEN: "",
+    descriptionEN: "A raised feeder for Star and Ivy. Trigonometry, we meet again.",
     descriptionNL: "",
-    image: "platform.jpg"
+    image: "platform.jpg",
+    category: "Woodworking",
+    specs: [
+        { label: "Wood", value: "Pallet wood" },
+        { label: "Leg angle", value: "110°" },
+        { label: "Finish", value: "Linseed oil" },
+    ]
 }
 
 export const Platform: FC = () => {
     return (
         <div className="page">
             <h1 className="title">Trigonometry we meet again</h1>
+            <Specs items={Data.specs} />
             <div >
                 <p >
                     <span>I have two <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Italian_Greyhound">Italian greyhounds</a>, Star (gary) and Ivy (black), I wanted to make them a platform for food and water</span>

@@ -1,69 +1,104 @@
 .menu {
-    color: var(--primary-text-color);
-    font-size: 24px;
-    font-weight: 600;
-    display: grid;
-    background-color: var(--menu-color);
-    width: inherit;
-    padding: 4px 12px;
-    align-items: end;
     position: relative;
-    /* box-shadow: 0px 4px 10px #9d9c9c; */
+    border-bottom: 1px solid var(--line);
+    background-color: var(--bg);
 
-    &>* {
-        grid-area: 1 / 1;
-    }
-
-    .logo {
-        justify-self: start;
-
-        @media only screen and (width <=400px) {
-            display: none;
-            visibility: hidden;
-        }
-    }
-
-    .siteName {
-        z-index: 3;
-        justify-self: center;
-        font-family: "Arizonia", cursive;
-        font-weight: 600;
-        font-style: normal;
-        font-size: 40px;
-        color: var(--color-7);
-
-        @media only screen and (width <=400px) {
-            justify-self: start;
-        }
-    }
-
-    .items {
-        align-self: end;
-        justify-self: end;
+    .menu-bar {
         display: flex;
-        gap: 10px;
-        font-size: 14px;
-        padding-bottom: 8px;
+        align-items: center;
+        gap: 24px;
+        padding-top: 14px;
+        padding-bottom: 14px;
 
-        color: var(--color-7);
+        @media only screen and (width <=640px) {
+            gap: 10px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+    }
 
-        .language {
-            background-color: transparent;
-            border: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-grow: 1;
+        min-width: 0;
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            flex: none;
         }
 
-        .language:focus {
-            outline: none;
-
-            /* Highly Recommended: Add your own custom focus style */
-            border-color: #3b82f6;
-            /* Example: Blue border */
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-            /* Example: Soft focus ring */
+        span {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 21px;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
+    }
 
+    .links {
+        display: flex;
+        gap: 28px;
+        font-size: 15px;
+        font-weight: 500;
+
+        @media only screen and (width <=640px) {
+            display: none;
+        }
+    }
+
+    .menu-button {
+        display: none;
+
+        @media only screen and (width <=640px) {
+            display: flex;
+        }
+    }
+
+    .menu-panel {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        min-height: calc(100vh - 69px);
+        background-color: var(--bg);
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding-top: 24px;
+        padding-bottom: 32px;
+    }
+
+    .menu-panel-links {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 32px;
+            letter-spacing: -0.03em;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+        }
+    }
+
+    .menu-panel-external {
+        display: flex;
+        gap: 24px;
+        font-size: 17px;
+        font-weight: 500;
+
+        a {
+            color: var(--accent);
+        }
     }
 }

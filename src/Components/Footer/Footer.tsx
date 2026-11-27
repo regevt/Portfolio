@@ -1,19 +1,14 @@
 import { FC } from "react";
+import "./Footer.css";
 
 export const Footer: FC = () => {
-    return <div style={{
-        borderTop: "1px solid white",
-        // margin: "10px 0",
-        padding: "20px",
-
-        display: "flex",
-        justifyContent: "space-between",
-        marginTop: "40px"
-    }}>
-        <span>Regev Tal-Snijder</span>
-        <div>
-            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/regev-tal/">Linkedin</a> <span> | </span>
-            <a target="_blank" rel="noreferrer" href="https://github.com/regevt">Github</a>
+    return <footer className="footer">
+        <div className="wrap footer-content">
+            <span>© {new Date().getFullYear()} Regev Tal-Snijder</span>
+            <span className="footer-links">
+                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/regev-tal/">LinkedIn ↗</a>
+                <a target="_blank" rel="noreferrer" href="https://github.com/regevt">GitHub ↗</a>
+            </span>
         </div>
-    </div>
+    </footer>
 }
