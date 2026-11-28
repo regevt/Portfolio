@@ -1,6 +1,8 @@
 export interface Spec {
     label: string;
     value: string;
+    labelNL?: string;
+    valueNL?: string;
 }
 
 export interface Project {

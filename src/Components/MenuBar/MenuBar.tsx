@@ -3,6 +3,8 @@ import "./MenuBar.css";
 import { Link, useLocation } from "react-router-dom";
 import { PortfolioContext } from "../../Context/Store";
 import { usePrefersDark } from "../../hooks/usePrefersDark";
+import { useLocale } from "../../hooks/useLocale";
+import { lang } from "../../types/types";
 
 const SunIcon: FC = () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
@@ -28,11 +30,16 @@ export const MenuBar: FC = () => {
     const prefersDark = usePrefersDark();
     const location = useLocation();
     const [menuOpen, setMenuOpen] = useState(false);
+    const { t, lang: current } = useLocale();
 
     const isDark = state.theme === "dark" || (state.theme === "system" && prefersDark);
 
     const toggleTheme = () => {
         dispatch?.({ type: "set", payload: { theme: isDark ? "light" : "dark" } });
+    };
+
+    const toggleLang = () => {
+        dispatch?.({ type: "set", payload: { lang: current === lang.NL ? lang.EN : lang.NL } });
     };
 
     useEffect(() => {
@@ -50,9 +57,9 @@ export const MenuBar: FC = () => {
 
     const links = (
         <>
-            <Link to="/" state={{ section: "projects" }}>Projects</Link>
-            <Link to="/" state={{ section: "about" }}>About</Link>
-            <Link to="/" state={{ section: "contact" }}>Contact</Link>
+            <Link to="/" state={{ section: "projects" }}>{t("nav.projects")}</Link>
+            <Link to="/" state={{ section: "about" }}>{t("nav.about")}</Link>
+            <Link to="/" state={{ section: "contact" }}>{t("nav.contact")}</Link>
         </>
     );
 
@@ -62,20 +69,25 @@ export const MenuBar: FC = () => {
                 <img src={`${process.env.PUBLIC_URL || ''}/images/logo.png`} alt="" width="40" height="40" />
                 <span>Regev Makes</span>
             </Link>
-            <nav className="links" aria-label="Main">
+            <nav className="links" aria-label={t("nav.main")}>
                 {links}
             </nav>
+            <button type="button" className="icon-button lang-button" onClick={toggleLang}
+                aria-label={t("lang.switch")} title={t("lang.switch")}
+                lang={current === lang.NL ? "en" : "nl"}>
+                {current === lang.NL ? "EN" : "NL"}
+            </button>
             <button type="button" className="icon-button" onClick={toggleTheme}
-                aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}>
+                aria-label={isDark ? t("theme.toLight") : t("theme.toDark")}>
                 {isDark ? <SunIcon /> : <MoonIcon />}
             </button>
             <button type="button" className="icon-button menu-button" onClick={() => setMenuOpen(!menuOpen)}
-                aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="site-menu">
+                aria-label={menuOpen ? t("menu.close") : t("menu.open")} aria-expanded={menuOpen} aria-controls="site-menu">
                 <MenuIcon open={menuOpen} />
             </button>
         </div>
         {menuOpen && <div id="site-menu" className="menu-panel">
-            <nav className="wrap menu-panel-links" aria-label="Main">
+            <nav className="wrap menu-panel-links" aria-label={t("nav.main")}>
                 {links}
             </nav>
             <div className="wrap menu-panel-external">

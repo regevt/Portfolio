@@ -4,12 +4,14 @@ import { Card } from "../../Components/Card/Card";
 import { Link, useLocation } from "react-router-dom";
 import { Pages } from "../../Pages"
 import { Footer } from "../../Components/Footer/Footer";
+import { useLocale } from "../../hooks/useLocale";
 
 const ALL = "All";
 
 export const Home: FC = () => {
     const location = useLocation();
     const [category, setCategory] = useState(ALL);
+    const { t, category: categoryLabel } = useLocale();
 
     const categories = useMemo(() => {
         const names = Array.from(new Set(Pages.map(p => p.data.category)));
@@ -36,17 +38,17 @@ export const Home: FC = () => {
 
     return <main className="home">
         <section className="wrap intro">
-            <span className="eyebrow">Workshop log · {Pages.length} builds</span>
-            <h1>I build things from wood, filament and solder.</h1>
-            <p className="lede">Software developer by day. These are the weekend projects: what I made, what I used, and what I would do differently next time.</p>
+            <span className="eyebrow">{t("home.eyebrow", { count: Pages.length })}</span>
+            <h1>{t("home.title")}</h1>
+            <p className="lede">{t("home.lede")}</p>
         </section>
 
         <section id="projects" className="wrap projects">
-            <div className="chips" role="group" aria-label="Filter projects">
+            <div className="chips" role="group" aria-label={t("home.filter")}>
                 {categories.map(c =>
                     <button type="button" key={c.name} className="chip" aria-pressed={category === c.name}
                         onClick={() => setCategory(c.name)}>
-                        {c.name}<span className="count">{c.count}</span>
+                        {categoryLabel(c.name)}<span className="count">{c.count}</span>
                     </button>
                 )}
             </div>
@@ -57,13 +59,13 @@ export const Home: FC = () => {
 
         <section id="about" className="wrap about">
             <div className="about-content">
-                <h2>About</h2>
+                <h2>{t("home.about")}</h2>
                 <div className="about-text">
-                    <p>I'm Regev Tal-Snijder, a software developer, hobbyist woodworker and tinkerer. I started with a rotten balcony deck and kept going: planters, a dog bowl stand, breadboard computers and anything a 3D printer can make.</p>
-                    <p className="soft">Most of these are first attempts. Each page says what went wrong as well as what worked.</p>
+                    <p>{t("home.about1")}</p>
+                    <p className="soft">{t("home.about2")}</p>
                 </div>
                 <div id="contact" className="contact">
-                    <span className="label">Elsewhere</span>
+                    <span className="label">{t("home.elsewhere")}</span>
                     <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/regev-tal/">LinkedIn ↗</a>
                     <a target="_blank" rel="noreferrer" href="https://github.com/regevt">GitHub ↗</a>
                 </div>

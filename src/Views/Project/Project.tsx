@@ -8,6 +8,7 @@ import { Pages } from "../../Pages";
 import { Footer } from "../../Components/Footer/Footer";
 import { Project as ProjectData } from "../../types/types";
 import { collapsedGeometry } from "../../Utils/lightbox.utils";
+import { useLocale } from "../../hooks/useLocale";
 
 const ANIMATION_MS = 400;
 const VIEWPORT_FILL = 0.9;
@@ -54,6 +55,8 @@ export interface ProjectProps extends PropsWithChildren {
 
 export const Project: FC<ProjectProps> = ({ children }) => {
     const params = useParams();
+    const { t, pick, category } = useLocale();
+    const titleOf = (project: ProjectData) => pick(project.titleEN, project.titleNL || project.titleEN);
 
     const [isOpen, setIsOpen] = useState(false);
     const [image, setImage] = useState<OpenedImage | undefined>(undefined);
@@ -234,26 +237,26 @@ export const Project: FC<ProjectProps> = ({ children }) => {
     return (
         <main className="project">
             <div className="wrap project-head">
-                <Link className="back" to="/" state={{ section: "projects" }}>← All projects</Link>
-                {data?.category && <span className="eyebrow">{data.category}</span>}
+                <Link className="back" to="/" state={{ section: "projects" }}>{t("project.back")}</Link>
+                {data?.category && <span className="eyebrow">{category(data.category)}</span>}
             </div>
 
             <div className="description" ref={contentRef} onClick={handleContentClick}>
                 {Page && <Page />}
             </div>
 
-            {(previous || next) && <nav className="wrap more-projects" aria-label="More projects">
+            {(previous || next) && <nav className="wrap more-projects" aria-label={t("project.more")}>
                 {previous ? <Link className="neighbour" to={`/project/${previous.id}`}>
                     <img src={thumbnail(previous)} alt="" />
                     <span>
-                        <span className="direction">← Previous</span>
-                        <span className="name">{previous.titleEN}</span>
+                        <span className="direction">{t("project.previous")}</span>
+                        <span className="name">{titleOf(previous)}</span>
                     </span>
                 </Link> : <span />}
                 {next && <Link className="neighbour next" to={`/project/${next.id}`}>
                     <span>
-                        <span className="direction">Next →</span>
-                        <span className="name">{next.titleEN}</span>
+                        <span className="direction">{t("project.next")}</span>
+                        <span className="name">{titleOf(next)}</span>
                     </span>
                     <img src={thumbnail(next)} alt="" />
                 </Link>}
@@ -270,17 +273,17 @@ export const Project: FC<ProjectProps> = ({ children }) => {
                     <img
                         ref={imgRef}
                         src={image.src}
-                        alt={image.alt || "Expanded view"}
+                        alt={image.alt || t("lightbox.expanded")}
                         style={{ width: image.width, height: image.height }}
                         onTransitionEnd={handleTransitionEnd}
                     />
                 )}
                 {isOpen && image && image.total > 1 && <>
-                    <button type="button" className="overlay-nav previous" aria-label="Previous photo"
+                    <button type="button" className="overlay-nav previous" aria-label={t("lightbox.previous")}
                         onClick={(e) => { e.stopPropagation(); navigate(-1); }}>
                         <ChevronIcon direction="left" />
                     </button>
-                    <button type="button" className="overlay-nav next" aria-label="Next photo"
+                    <button type="button" className="overlay-nav next" aria-label={t("lightbox.next")}
                         onClick={(e) => { e.stopPropagation(); navigate(1); }}>
                         <ChevronIcon direction="right" />
                     </button>

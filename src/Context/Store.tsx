@@ -2,6 +2,7 @@ import { createContext, useReducer, PropsWithChildren, ActionDispatch, useEffect
 import { lang, Theme } from "../types/types";
 
 const THEME_KEY = "theme";
+const LANG_KEY = "lang";
 
 export interface PortfolioState {
     lang: lang;
@@ -23,6 +24,18 @@ const readStoredTheme = (): Theme => {
     return "system";
 }
 
+const readStoredLang = (): lang => {
+    try {
+        const stored = window.localStorage.getItem(LANG_KEY);
+        if (stored === "nl") return lang.NL;
+        if (stored === "en") return lang.EN;
+    } catch {
+        // Storage can be blocked. Fall back to the browser language then.
+    }
+    const preferred = navigator.languages?.length ? navigator.languages : [navigator.language];
+    return preferred.some(l => l?.toLowerCase().startsWith("nl")) ? lang.NL : lang.EN;
+}
+
 export const PortfolioContext = createContext<{
     state: PortfolioState,
     dispatch?: ActionDispatch<[action: PortfolioAction]>
@@ -33,16 +46,18 @@ export const PortfolioProvider = ({ children }: PropsWithChildren) => {
     const [portfolio, dispatch] = useReducer(
         portfolioReducer,
         { lang: lang.EN, theme: "system" },
-        (initial) => ({ ...initial, theme: readStoredTheme() })
+        (initial) => ({ ...initial, lang: readStoredLang(), theme: readStoredTheme() })
     );
 
     useEffect(() => {
-        dispatch?.({
-            type: "set", payload: {
-                lang: lang.EN,
-            }
-        })
-    }, [])
+        const code = portfolio.lang === lang.NL ? "nl" : "en";
+        document.documentElement.lang = code;
+        try {
+            window.localStorage.setItem(LANG_KEY, code);
+        } catch {
+            // Storage can be blocked. The language then lasts for this visit only.
+        }
+    }, [portfolio.lang])
 
     useEffect(() => {
         const root = document.documentElement;

@@ -1,13 +1,13 @@
 import { FC } from "react";
-import { Deck, Data as DeckData } from "./deck";
-import { Planter1, Data as planterData } from "./planters";
-import { Platform, Data as platformData } from "./platform";
-import { Stargate, Data as stargateData } from "./stargate";
-import { Computer6502, Data as computer6502Data } from "./computer6502";
-import { EightBit, Data as eightBitData } from "./eightBit";
-import { Cnc, Data as cncData } from "./cnc";
-import { Metronome, Data as metronomeData } from "./metronome";
-import { HexLights, Data as hexLightsData } from "./hexLights";
+import { Deck, Data as DeckData } from "./Deck/Deck";
+import { Planters, Data as plantersData } from "./Planters/Planters";
+import { Platform, Data as platformData } from "./Platform/Platform";
+import { Stargate, Data as stargateData } from "./Stargate/Stargate";
+import { Computer6502, Data as computer6502Data } from "./Computer6502/Computer6502";
+import { EightBit, Data as eightBitData } from "./EightBit/EightBit";
+import { Cnc, Data as cncData } from "./Cnc/Cnc";
+import { Metronome, Data as metronomeData } from "./Metronome/Metronome";
+import { HexLights, Data as hexLightsData } from "./HexLights/HexLights";
 import { Project } from "../types/types";
 
 export interface PageType {
@@ -18,7 +18,7 @@ export interface PageType {
 
 export const Pages = [
     { Page: Deck, data: DeckData },
-    { Page: Planter1, data: planterData },
+    { Page: Planters, data: plantersData },
     { Page: Stargate, data: stargateData },
     { Page: Platform, data: platformData },
     { Page: Computer6502, data: computer6502Data },
